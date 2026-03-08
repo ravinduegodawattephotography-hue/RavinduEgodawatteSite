@@ -1,0 +1,180 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Premium Dark Theme - Photography Portfolio */
+:root {
+  --radius: 0.5rem;
+  --background: 0 0% 4%;
+  --foreground: 0 0% 98%;
+  --card: 0 0% 6%;
+  --card-foreground: 0 0% 98%;
+  --popover: 0 0% 6%;
+  --popover-foreground: 0 0% 98%;
+  --primary: 45 80% 50%;
+  --primary-foreground: 0 0% 4%;
+  --secondary: 0 0% 12%;
+  --secondary-foreground: 0 0% 98%;
+  --muted: 0 0% 15%;
+  --muted-foreground: 0 0% 65%;
+  --accent: 45 80% 50%;
+  --accent-foreground: 0 0% 4%;
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 98%;
+  --border: 0 0% 18%;
+  --input: 0 0% 18%;
+  --ring: 45 80% 50%;
+  --chart-1: 45 80% 50%;
+  --chart-2: 0 0% 25%;
+  --chart-3: 0 0% 35%;
+  --chart-4: 0 0% 45%;
+  --chart-5: 0 0% 55%;
+  --sidebar-background: 0 0% 6%;
+  --sidebar-foreground: 0 0% 98%;
+  --sidebar-primary: 45 80% 50%;
+  --sidebar-primary-foreground: 0 0% 4%;
+  --sidebar-accent: 0 0% 12%;
+  --sidebar-accent-foreground: 0 0% 98%;
+  --sidebar-border: 0 0% 18%;
+  --sidebar-ring: 45 80% 50%;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--background));
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--primary));
+}
+
+/* Gold Accent Text */
+.text-gold {
+  color: hsl(45 80% 50%);
+}
+
+.bg-gold {
+  background-color: hsl(45 80% 50%);
+}
+
+.border-gold {
+  border-color: hsl(45 80% 50%);
+}
+
+/* Premium Typography */
+.font-display {
+  font-family: 'Playfair Display', 'Times New Roman', serif;
+}
+
+/* Glass Effect */
+.glass {
+  background: rgba(10, 10, 10, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.glass-light {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* Animation Utilities */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(212, 175, 55, 0.3); }
+  50% { box-shadow: 0 0 40px rgba(212, 175, 55, 0.6); }
+}
+
+@keyframes aperture-open {
+  0% { clip-path: circle(0% at 50% 50%); }
+  100% { clip-path: circle(150% at 50% 50%); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Image Hover Effects */
+.image-hover-zoom {
+  overflow: hidden;
+}
+
+.image-hover-zoom img {
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.image-hover-zoom:hover img {
+  transform: scale(1.1);
+}
+
+/* Gradient Overlays */
+.gradient-overlay {
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(0, 0, 0, 0.3) 50%,
+    rgba(0, 0, 0, 0.8) 100%
+  );
+}
+
+/* Loading Skeleton */
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    hsl(var(--muted)) 25%,
+    hsl(var(--border)) 50%,
+    hsl(var(--muted)) 75%
+  );
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.5s infinite;
+}
+
+@keyframes skeleton-loading {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* Focus Ring */
+.focus-ring:focus-visible {
+  outline: 2px solid hsl(var(--primary));
+  outline-offset: 2px;
+}
+
+/* Selection */
+::selection {
+  background: hsl(45 80% 50% / 0.3);
+  color: white;
+}
+
